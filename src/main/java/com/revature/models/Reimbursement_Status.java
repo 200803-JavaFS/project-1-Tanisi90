@@ -2,11 +2,21 @@ package com.revature.models;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "ers_reimbursment_status")
 public class Reimbursement_Status implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
-	
+	@Id
+	@Column(name = "reimb_status_id")
 	private int reimb_status_id;
+	
+	@Column(name = "reimb_status")
 	private String reimb_status;
 	
 	

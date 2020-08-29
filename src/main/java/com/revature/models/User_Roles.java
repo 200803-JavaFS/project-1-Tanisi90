@@ -2,11 +2,22 @@ package com.revature.models;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "ers_user_roles")
 public class User_Roles implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
 	
+	@Id
+	@Column(name = "user_role_id")
 	private int user_role_id;
+	
+	@Column(name = "user_role")
 	private String user_role;
 	
 	public User_Roles() {

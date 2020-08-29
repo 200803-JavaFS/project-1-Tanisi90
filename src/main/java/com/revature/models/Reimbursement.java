@@ -1,20 +1,55 @@
 package com.revature.models;
 
 import java.io.Serializable;
+
 import java.sql.Timestamp;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+
+@Entity
+@Table(name = "ers_reimbursment")
 public class Reimbursement implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
-	
+	@Id
+	@Column(name = "reimb_id")
 	private int reimb_id;
+	
+	@Column(name = "reimb_amount")
 	private double reimb_amount;
+	
+	@Column(name = "reimb_submitted")
 	private Timestamp reimb_submitted;
+	
+	@Column(name = "reimb_resolved")
 	private Timestamp reimb_resolved;
+	
+	@Column(name = "reimb_description")
 	private String reimb_description;
+	
+	// Foreign Keys
+	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@JoinColumn(name = "reimb_id")
 	private Users reimb_author;
+	
+	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@JoinColumn(name = "reimb_id")
 	private Users reimb_resolver;
+	
+	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@JoinColumn(name = "role_id")
 	private Reimbursement_Status reimb_status_id;
+	
+	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@JoinColumn(name = "type_id")
 	private Reimbursement_Type reimb_type_id;
 	
 	

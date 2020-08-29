@@ -1,0 +1,39 @@
+{
+	"folders": {},
+	"connections": {
+		"postgres-jdbc-17437f1fae3-35a6747bbf2aa916": {
+			"provider": "postgresql",
+			"driver": "postgres-jdbc",
+			"name": "project1",
+			"save-password": true,
+			"show-system-objects": true,
+			"read-only": false,
+			"configuration": {
+				"host": "javafs200803.cb2jxgoiogdh.us-west-1.rds.amazonaws.com",
+				"port": "5432",
+				"database": "project1",
+				"url": "jdbc:postgresql://javafs200803.cb2jxgoiogdh.us-west-1.rds.amazonaws.com:5432/project1",
+				"home": "postgresql-x64-12",
+				"type": "dev",
+				"provider-properties": {
+					"@dbeaver-show-non-default-db@": "false",
+					"@dbeaver-show-template-db@": "false",
+					"postgresql.dd.plain.string": "false",
+					"postgresql.dd.tag.string": "false"
+				},
+				"auth-model": "native",
+				"handlers": {}
+			}
+		}
+	},
+	"connection-types": {
+		"dev": {
+			"name": "Development",
+			"color": "255,255,255",
+			"description": "Regular development database",
+			"auto-commit": true,
+			"confirm-execute": false,
+			"confirm-data-change": false
+		}
+	}
+}
