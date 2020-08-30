@@ -17,6 +17,7 @@ public class LoginController {
 	private static ObjectMapper om = new ObjectMapper();
 
 	public void login(HttpServletRequest req, HttpServletResponse res) throws IOException {
+
 		if (req.getMethod().equals("POST")) {
 			// this is how a login should generally be handled. Sending credentials in the
 			// body of a POST request.
