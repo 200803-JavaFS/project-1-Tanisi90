@@ -5,7 +5,6 @@ import java.util.List;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 
-import com.revature.models.Avengers;
 import com.revature.models.Reimbursement;
 import com.revature.utils.HibernateUtil;
 
@@ -57,14 +56,15 @@ public class ReimbursementDAO implements IReimbursementDAO {
 	@Override
 	public boolean deleteReimbursementTicket(Reimbursement drt) {
 		Session ses = HibernateUtil.getSession();
-		
 		try {
-			ses.createQuery("DELETE FROM Avenger WHERE supId =" + supId);
+			ses.delete(drt);
 			return true;
-		}catch(HibernateException e) {
+		}catch(Exception e){
 			e.printStackTrace();
 			return false;
 		}
 	}
-
 }
+
+
+
