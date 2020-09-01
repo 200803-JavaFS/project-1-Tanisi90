@@ -41,7 +41,7 @@ public class UserService {
 		return uDAO.deleteUser(u);
 	}
 	
-	public Users selectByLICred(String username, String password) {
+	public boolean selectByLICred(String username, String password) {
 		log.info("Get User Credentials");
 		return uDAO.selectByLICred(username, password);
 	}

@@ -8,6 +8,7 @@ import org.apache.logging.log4j.Logger;
 import com.revature.daos.IReimbursementDAO;
 import com.revature.daos.ReimbursementDAO;
 import com.revature.models.Reimbursement;
+import com.revature.models.ReimbursementDTO;
 
 public class ReimbursementService {
 	private static final Logger log = LogManager.getLogger(ReimbursementService.class);
@@ -24,9 +25,10 @@ public class ReimbursementService {
 		return rDAO.findById(id);
 	}
 	
-	public boolean addReimbursementTicket(Reimbursement rt) {
+	public boolean addReimbursementTicket(ReimbursementDTO rdto) {
 		log.info("Add a Reimbursement Ticket");
-		return rDAO.addReimbursementTicket(rt);
+		if(rdto.)
+		return rDAO.addReimbursementTicket(rdto);
 	}
 	
 	public boolean updateReimbursementTicket(Reimbursement rt) {

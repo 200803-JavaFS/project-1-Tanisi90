@@ -16,7 +16,9 @@ public interface IUserDAO {
 	
 	public boolean deleteUser(Users u);
 	
-	public Users selectByLICred(String username, String password);
+	public Users getByUsername(String username);
+	
+	public boolean selectByLICred(String username, String password);
 }
 
 

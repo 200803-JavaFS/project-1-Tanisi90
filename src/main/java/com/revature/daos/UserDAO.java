@@ -6,6 +6,7 @@ import org.hibernate.HibernateException;
 import org.hibernate.Session;
 
 import com.revature.models.Users;
+import com.revature.utils.ConnectionUtil;
 import com.revature.utils.HibernateUtil;
 
 public class UserDAO implements IUserDAO {
@@ -64,15 +65,27 @@ public class UserDAO implements IUserDAO {
 			return false;
 		}
 	}
+	
+	@Override
+	public boolean selectByLICred(String username, String password) {
+		Session ses = HibernateUtil.getSession();
+		try {
+			ses.createQuery("FROM User WHERE username ='" + username + "' AND password='" + password + ";");
+			return true;
+		}catch(Exception e) {
+			e.printStackTrace();
+			return false;
+		}
+	}
 
 	@Override
-	public Users selectByLICred(String username, String password) {
+	public Users getByUsername(String username) {
 		Session ses = HibernateUtil.getSession();
-		List<Users> userList = ses.createQuery(
-				"FROM User WHERE username ='" + username + "' AND password='" + password + "'", Users.class).list();
-		Users u = userList.get(0);
+		Users u = ses.get(Users.class, username);
 		return u;
 	}
+
 }
+
 
 
