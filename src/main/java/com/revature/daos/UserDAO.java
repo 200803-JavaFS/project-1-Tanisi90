@@ -55,10 +55,10 @@ public class UserDAO implements IUserDAO {
 	}
 
 	@Override
-	public boolean deleteUser(Users u) {
+	public boolean deleteUser(Users du) {
 		Session ses = HibernateUtil.getSession();
 		try {
-			ses.delete(u);
+			ses.delete(du);
 			return true;
 		} catch (Exception e) {
 			e.printStackTrace();

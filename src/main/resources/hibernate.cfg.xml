@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+        
+        <hibernate-configuration>
+	<session-factory>
+	<!-- JDBC config -->
+		<property name = "hibernate.connection.username">postgres</property>
+		<property name = "hibernate.connection.password">Password</property>
+		<property name = "hibernate.connection.url">jdbc:postgresql://javafs200803.cb2jxgoiogdh.us-west-1.rds.amazonaws.com:5432/project1</property>
+		<property name = "hibernate.connection.driver_class">org.postgresql.Driver</property>
+		
+		<!-- Additional Hibernate Properties -->
+		<property name = "hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
+
+		<!-- This will print the sql querier hibernate makes to the console -->
+		<property name = "hibernate.show_sql">true</property>
+		<property name = "hibernate.format_sql">true</property>
+		<property name = "hibernate.hbm2ddl.auto">update</property>
+		
+		<!-- Now we need our mappings -->
+		
+		<mapping class = "com.revature.models.Reimbursement"/>
+		<mapping class = "com.revature.models.Users"/>
+		<mapping class = "com.revature.models.User_Roles"/>
+		<mapping class = "com.revature.models.Reimbursement_Type"/>
+		<mapping class = "com.revature.models.Reimbursement_Status"/>
+			
+	</session-factory>
+</hibernate-configuration>

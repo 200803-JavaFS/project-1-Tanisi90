@@ -6,6 +6,7 @@ import org.hibernate.HibernateException;
 import org.hibernate.Session;
 
 import com.revature.models.Reimbursement;
+import com.revature.models.Reimbursement_Status;
 import com.revature.utils.HibernateUtil;
 
 public class ReimbursementDAO implements IReimbursementDAO {
@@ -63,6 +64,15 @@ public class ReimbursementDAO implements IReimbursementDAO {
 			e.printStackTrace();
 			return false;
 		}
+	}
+	
+	@Override
+	public List<Reimbursement> ReimbursementsByStatus(Reimbursement_Status status) {
+		Session ses = HibernateUtil.getSession();
+		
+		List<Reimbursement> list = ses.createQuery("FROM Reimbursement WHERE reimb_status_id = "+ status.getReimb_status_id(), Reimbursement.class).list();
+		
+		return list;
 	}
 }
 

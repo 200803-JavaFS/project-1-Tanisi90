@@ -36,9 +36,9 @@ public class UserService {
 		return uDAO.updateUser(u);
 	}
 	
-	public boolean deleteUser(Users u) {
+	public boolean deleteUser(Users du) {
 		log.info("Delete User");
-		return uDAO.deleteUser(u);
+		return uDAO.deleteUser(du);
 	}
 	
 	public boolean selectByLICred(String username, String password) {

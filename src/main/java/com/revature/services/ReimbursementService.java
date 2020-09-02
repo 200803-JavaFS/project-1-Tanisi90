@@ -8,7 +8,8 @@ import org.apache.logging.log4j.Logger;
 import com.revature.daos.IReimbursementDAO;
 import com.revature.daos.ReimbursementDAO;
 import com.revature.models.Reimbursement;
-import com.revature.models.ReimbursementDTO;
+import com.revature.models.Reimbursement_Status;
+
 
 public class ReimbursementService {
 	private static final Logger log = LogManager.getLogger(ReimbursementService.class);
@@ -21,24 +22,28 @@ public class ReimbursementService {
 	}
 	
 	public Reimbursement findById(int id) {
-		log.info("Find Reimbursement by ID");
+		log.info("Find Reimbursement by ID" );
 		return rDAO.findById(id);
 	}
 	
-	public boolean addReimbursementTicket(ReimbursementDTO rdto) {
-		log.info("Add a Reimbursement Ticket");
-		if(rdto.)
-		return rDAO.addReimbursementTicket(rdto);
+	public boolean addReimbursementTicket(Reimbursement rt) {
+		log.info("Add a Reimbursement Ticket" );
+		return rDAO.addReimbursementTicket(rt);
 	}
 	
 	public boolean updateReimbursementTicket(Reimbursement rt) {
-		log.info("Update a Reimbursement Ticket");
+		log.info("Update a Reimbursement Ticket" );
 		return rDAO.updateReimbursementTicket(rt);
 	}
 	
 	public boolean deleteReimbursementTicket(Reimbursement drt) {
 		log.info("Delete a Reimbursement Ticket");
 		return rDAO.deleteReimbursementTicket(drt);
+	}
+	
+	public List<Reimbursement> ReimbursementsByStatus(Reimbursement_Status status){
+		log.info("Retrieving Reimbursements By Status");
+		return rDAO.ReimbursementsByStatus(status);
 	}
 	
 	
