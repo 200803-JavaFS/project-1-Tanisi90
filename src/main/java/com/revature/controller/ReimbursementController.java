@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.revature.models.Reimbursement;
+import com.revature.models.Reimbursement_Status;
 import com.revature.services.ReimbursementService;
 
 public class ReimbursementController {
@@ -27,13 +28,13 @@ public class ReimbursementController {
 		}
 	}
 
-	public void getAllReimbursements(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+	public void getAllReimbursements(HttpServletResponse resp) throws IOException {
 		List<Reimbursement> allr = reimbs.findAll();
 		resp.getWriter().println(objm.writeValueAsString(allr));
 		resp.setStatus(200);
 	}
 
-	public void addReimbursement(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+	public void addReimbursementTicket(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 		BufferedReader reader = req.getReader();
 
 		StringBuilder s = new StringBuilder();
@@ -59,6 +60,27 @@ public class ReimbursementController {
 		} else {
 			resp.setStatus(403);
 		}
+	}
+	
+	public void ReimbursementsByStatus(HttpServletResponse resp, Reimbursement_Status status) throws IOException{
+		List<Reimbursement> allStats = reimbs.ReimbursementsByStatus(status);
+		resp.getWriter().println(objm.writeValueAsString(allStats));
+		resp.setStatus(200);
+		
+	}
+	
+	public void updateReimbursementStatus(HttpServletRequest req, HttpServletResponse resp) throws IOException{
+		BufferedReader reader= req.getReader();
+		StringBuilder s=new StringBuilder();
+		String line = reader.readLine();
+		while(line!=null) {
+			s.append(line);
+			line = reader.readLine();
+		}
+		
+		String body = new String(s);
+		
+		
 	}
 }
 

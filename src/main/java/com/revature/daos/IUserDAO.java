@@ -2,6 +2,7 @@ package com.revature.daos;
 
 import java.util.List;
 
+import com.revature.models.User_Roles;
 import com.revature.models.Users;
 
 public interface IUserDAO {
@@ -19,6 +20,10 @@ public interface IUserDAO {
 	public Users getByUsername(String username);
 	
 	public boolean selectByLICred(String username, String password);
+
+	public User_Roles addUserRole(User_Roles userR);
+
+	public User_Roles getUserRole(User_Roles userR);
 }
 
 

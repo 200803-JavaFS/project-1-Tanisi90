@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
+import org.hibernate.Transaction;
 
 import com.revature.models.Reimbursement;
 import com.revature.models.Reimbursement_Status;
@@ -44,6 +45,8 @@ public class ReimbursementDAO implements IReimbursementDAO {
 	@Override
 	public boolean updateReimbursementTicket(Reimbursement rt) {
 		Session ses = HibernateUtil.getSession();
+		
+		Transaction trans = ses.beginTransaction();
 
 		try {
 			ses.merge(rt);
@@ -51,6 +54,8 @@ public class ReimbursementDAO implements IReimbursementDAO {
 		} catch (HibernateException e) {
 			e.printStackTrace();
 			return false;
+		}finally{
+			HibernateUtil.closeSes();
 		}
 	}
 
@@ -74,7 +79,16 @@ public class ReimbursementDAO implements IReimbursementDAO {
 		
 		return list;
 	}
+	
+	@Override
+	public Reimbursement_Status updateReimbursementStatus(Reimbursement_Status status) {
+		Session ses = HibernateUtil.getSession();
+		
+		Reimbursement_Status rs = ses.get(Reimbursement_Status.class, status);
+		return rs;
+	}
 }
+
 
 
 

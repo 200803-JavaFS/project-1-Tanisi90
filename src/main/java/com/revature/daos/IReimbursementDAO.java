@@ -18,5 +18,7 @@ public interface IReimbursementDAO {
 			public boolean deleteReimbursementTicket(Reimbursement drt);
 
 			public List<Reimbursement> ReimbursementsByStatus(Reimbursement_Status status);
+
+			public Reimbursement_Status updateReimbursementStatus(Reimbursement_Status status);
 }
 
