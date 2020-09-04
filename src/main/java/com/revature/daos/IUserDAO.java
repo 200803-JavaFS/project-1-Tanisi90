@@ -23,7 +23,7 @@ public interface IUserDAO {
 
 	public User_Roles addUserRole(User_Roles userR);
 
-	public User_Roles getUserRole(User_Roles userR);
+	public User_Roles getUserRoleID(int id);
 }
 
 

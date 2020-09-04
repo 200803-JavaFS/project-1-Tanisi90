@@ -46,10 +46,10 @@ public class ReimbursementService {
 		return rDAO.ReimbursementsByStatus(status);
 	}
 	
-	public Reimbursement_Status updateReimbursementStatus(Reimbursement_Status status) {
-		log.info("Setting A Reimbursement Status Status");
-		return rDAO.updateReimbursementStatus(status);
-	}
+//	public Reimbursement_Status updateReimbursementStatus(Reimbursement_Status status) {
+//		log.info("Updating A Reimbursement Status");
+//		return rDAO.updateReimbursementStatus(status);
+//	}
 	
 	
 }

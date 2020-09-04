@@ -19,6 +19,6 @@ public interface IReimbursementDAO {
 
 			public List<Reimbursement> ReimbursementsByStatus(Reimbursement_Status status);
 
-			public Reimbursement_Status updateReimbursementStatus(Reimbursement_Status status);
 }
+
 

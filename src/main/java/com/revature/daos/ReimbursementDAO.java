@@ -50,6 +50,7 @@ public class ReimbursementDAO implements IReimbursementDAO {
 
 		try {
 			ses.merge(rt);
+			trans.commit();
 			return true;
 		} catch (HibernateException e) {
 			e.printStackTrace();
@@ -80,14 +81,9 @@ public class ReimbursementDAO implements IReimbursementDAO {
 		return list;
 	}
 	
-	@Override
-	public Reimbursement_Status updateReimbursementStatus(Reimbursement_Status status) {
-		Session ses = HibernateUtil.getSession();
-		
-		Reimbursement_Status rs = ses.get(Reimbursement_Status.class, status);
-		return rs;
-	}
 }
+
+
 
 
 

@@ -61,26 +61,35 @@ public class ReimbursementController {
 			resp.setStatus(403);
 		}
 	}
-	
-	public void ReimbursementsByStatus(HttpServletResponse resp, Reimbursement_Status status) throws IOException{
+
+	public void ReimbursementsByStatus(HttpServletResponse resp, Reimbursement_Status status) throws IOException {
 		List<Reimbursement> allStats = reimbs.ReimbursementsByStatus(status);
 		resp.getWriter().println(objm.writeValueAsString(allStats));
 		resp.setStatus(200);
-		
+
 	}
-	
-	public void updateReimbursementStatus(HttpServletRequest req, HttpServletResponse resp) throws IOException{
-		BufferedReader reader= req.getReader();
-		StringBuilder s=new StringBuilder();
-		String line = reader.readLine();
-		while(line!=null) {
-			s.append(line);
-			line = reader.readLine();
-		}
-		
-		String body = new String(s);
-		
-		
-	}
+
+//	public void updateReimbursementStatus(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+//		BufferedReader reader = req.getReader();
+//		StringBuilder s = new StringBuilder();
+//		String line = reader.readLine();
+//		while (line != null) {
+//			s.append(line);
+//			line = reader.readLine();
+//		}
+//
+//		String body = new String(s);
+//
+//		Reimbursement_Status rs = objm.readValue(body, Reimbursement_Status.class);
+//
+//		if (reimbs.updateReimbursementStatus(rs)) {
+//			resp.setStatus(202);
+//			resp.getWriter().println("Reimbursement Status Updated");
+//		} else {
+//			resp.setStatus(304);
+//		}
+//	}
+
 }
+
 

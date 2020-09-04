@@ -71,10 +71,7 @@ public class MasterServlet extends HttpServlet {
 					reimbc.addReimbursementTicket(req, resp);
 				}
 				break;
-			case "updateStatus":
-				
-				
-				
+	
 			case "logout":
 				lc.logout(req, resp);
 				break;
@@ -84,6 +81,14 @@ public class MasterServlet extends HttpServlet {
 			resp.getWriter().println("Please provide a valid ID number!");
 			resp.setStatus(400);
 		}
+		
 	}
+
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		doGet(req, resp);
+	}
+	
+	
 
 }

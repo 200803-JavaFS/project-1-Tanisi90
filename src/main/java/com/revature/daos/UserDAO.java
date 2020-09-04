@@ -33,6 +33,8 @@ public class UserDAO implements IUserDAO {
 	@Override
 	public boolean addUser(Users u) {
 		Session ses = HibernateUtil.getSession();
+		
+		Transaction trans = ses.beginTransaction();
 		try {
 			ses.save(u);
 
@@ -40,6 +42,8 @@ public class UserDAO implements IUserDAO {
 		} catch (Exception e) {
 			e.printStackTrace();
 			return false;
+		} finally {
+			HibernateUtil.closeSes();
 		}
 	}
 
@@ -51,6 +55,7 @@ public class UserDAO implements IUserDAO {
 
 		try {
 			ses.merge(u);
+			trans.commit();
 			return true;
 		} catch (HibernateException e) {
 			e.printStackTrace();
@@ -99,9 +104,9 @@ public class UserDAO implements IUserDAO {
 	}
 	
 	@Override
-	public User_Roles getUserRole(User_Roles userR) {
+	public User_Roles getUserRoleID(int id) {
 		Session ses = HibernateUtil.getSession();
-		User_Roles ur = ses.get(User_Roles.class, userR);
+		User_Roles ur = ses.get(User_Roles.class, id);
 		return ur;
 	}
 	
