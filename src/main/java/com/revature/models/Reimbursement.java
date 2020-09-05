@@ -15,6 +15,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.CreationTimestamp;
+
 
 @Entity
 @Table(name = "ers_reimbursement")
@@ -30,9 +32,11 @@ public class Reimbursement implements Serializable{
 	private double reimb_amount;
 	
 	@Column(name = "reimb_submitted")
+	@CreationTimestamp
 	private Timestamp reimb_submitted;
 	
 	@Column(name = "reimb_resolved")
+	@CreationTimestamp
 	private Timestamp reimb_resolved;
 	
 	@Column(name = "reimb_description")

@@ -81,8 +81,12 @@ public class UserDAO implements IUserDAO {
 	public boolean selectByLICred(String username, String password) {
 		Session ses = HibernateUtil.getSession();
 		try {
-			ses.createQuery("FROM User WHERE username ='" + username + "' AND password='" + password + ";");
+			List <Users> ul = ses.createQuery("FROM Users WHERE username ='" + username + "' AND password='" + password + "'").list();
+			if(ul.size() == 1) {
 			return true;
+			}else {
+				return false;
+			}
 		}catch(Exception e) {
 			e.printStackTrace();
 			return false;
@@ -92,7 +96,7 @@ public class UserDAO implements IUserDAO {
 	@Override
 	public Users getByUsername(String username) {
 		Session ses = HibernateUtil.getSession();
-		Users u = ses.get(Users.class, username);
+		Users u = ses.createQuery("FROM Users WHERE username ='" + username + "'", Users.class).list().get(0);
 		return u;
 	}
 	
