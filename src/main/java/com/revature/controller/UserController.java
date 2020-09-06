@@ -23,7 +23,7 @@ public class UserController {
 			resp.setStatus(204);
 		} else {
 			resp.setStatus(200);
-			String json = objm.writeValueAsString(u);
+			String json = objm.writeValueAsString(u.getUser_role_id().getuser_role_id());
 			resp.getWriter().println(json);
 		}
 	}

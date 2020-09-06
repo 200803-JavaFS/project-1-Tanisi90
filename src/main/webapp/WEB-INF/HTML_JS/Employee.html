@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <style type="text/css">
+        h1, h2 { text-align: center}
+        body { background: lightslategray; color: black}
+    </style>
+
+</head>
+<body onload="getUserReimbursement()">
+   <h1 class = "display-1" style = "color: lawngreen "><b> Employee Portal</b></h1>
+<br>
+<br>
+<h2 style = "color: black"> Tickets!</h2>
+<div class="container" id="fullcontainer">
+    <div class="text-center"></div>
+    <div class="row" id="table-row">      
+  </div>
+  <table class="table-hover table-bordered" id="reimbursement_table">
+    <thead> 
+        <tr>
+            <th>Reimbursement Employee_ID </th>
+            <th>Reimbursement Reimbrusement_Amount </th>
+            <th>Reimbursement Ticket_Submitted </th>
+            <th>Reimbursement Ticket_Resolved </th>
+            <th>Reimbursement Description</th>
+            <th>Reimbursement Author_ID </th>
+            <th>Reimbursement Resolver_ID</th>
+            <th>Reimbursement Status_ID </th>
+            <th>Reimbursement Type_ID </th>
+        </tr>
+    </thead>
+    <tbody id="reimbursementb">
+    </tbody>
+</table>
+</div>
+<br>
+<br>
+<script src = "Employee.js"></script>
+
+</body>
+</html>

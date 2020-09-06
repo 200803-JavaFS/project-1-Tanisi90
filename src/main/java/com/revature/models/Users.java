@@ -20,26 +20,26 @@ public class Users implements Serializable{
 	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name = "user_id")
+	@Column(name = "user_id", nullable = false)
 	private int users_id;
 	
-	@Column(name = "username")
+	@Column(name = "username", nullable = false)
 	private String username;
 	
-	@Column(name = "password")
+	@Column(name = "password", nullable = false)
 	private String password;
 	
-	@Column(name = "first_name")
+	@Column(name = "first_name", nullable = false)
 	private String first_name;
 	
-	@Column(name = "last_name")
+	@Column(name = "last_name", nullable = false)
 	private String last_name;
 	
-	@Column(name = "user_email")
+	@Column(name = "user_email", nullable = false)
 	private String user_email;
 	
 	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	@JoinColumn(name = "user_role_id")
+	@JoinColumn(name = "user_role_id" , nullable = false)
 	private User_Roles user_role_id;
 	
 	
@@ -74,6 +74,19 @@ public class Users implements Serializable{
 			User_Roles user_role_id) {
 		super();
 		this.users_id = users_id;
+		this.username = username;
+		this.password = password;
+		this.first_name = first_name;
+		this.last_name = last_name;
+		this.user_email = user_email;
+		this.user_role_id = user_role_id;
+	}
+	
+
+
+	public Users(String username, String password, String first_name, String last_name, String user_email,
+			User_Roles user_role_id) {
+		super();
 		this.username = username;
 		this.password = password;
 		this.first_name = first_name;

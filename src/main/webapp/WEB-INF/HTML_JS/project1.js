@@ -11,18 +11,42 @@ async function loginFunc(){
         password : userp
     }
 
-    let resp = await fetch(url + "Login", {
+    let resp = await fetch(url + "Login", { 
         method: 'POST',
         body : JSON.stringify(user),
         credentials: "include"
     })
 
     if(resp.status === 200){
-        document.getElementById("login row").innerText = "YOU HAVE LOGGED IN!";
-        let button = document.createElement('button')
-        button.className = "btn btn-success";
-        // Redirect elsewhere
+        document.getElementById("login_row").innerText = "YOU HAVE LOGGED IN!";
+        console.log(resp);
+        RolePages();
     }else {
-        document.getElementById("login row").innerText = "Your Username or Password is incorrect!";
+        document.getElementById("login_row").innerText = "Your Username or Password is incorrect!";
+    }
+
+    async function RolePages() {
+
+        let resp = await fetch(url + "Success", {
+            method: 'GET',
+            credentials: "include"
+        });
+        console.log(resp.status);
+        if (resp.status === 200) {
+            console.log(resp);
+            let rdata = await resp.json();
+            console.log(rdata);
+            let UserId = rdata;
+            sessionStorage.setItem("UserId", UserId);
+
+            if (UserId == 1) {
+                window.location.replace("Employee.html"); 
+            } else if (UserId == 2) {
+                window.location.replace("FinanceManager.html");
+            }
+            
+        } else {
+            document.getElementById("login_row").innerText = "Login failed!";
+        }
     }
 }

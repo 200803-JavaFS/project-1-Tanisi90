@@ -16,10 +16,10 @@ public class Reimbursement_Status implements Serializable {
 	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name = "reimb_status_id")
+	@Column(name = "reimb_status_id", nullable = false)
 	private int reimb_status_id;
 	
-	@Column(name = "reimb_status")
+	@Column(name = "reimb_status", nullable = false)
 	private String reimb_status;
 	
 	

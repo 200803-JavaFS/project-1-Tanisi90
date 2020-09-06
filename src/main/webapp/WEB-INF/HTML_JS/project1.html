@@ -9,40 +9,44 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 
     <title>Project1</title>
+    <style type="text/css">
+      h1 { text-align: center}
+      body { background: grey; color: black}
+      a:link { color: red }
+      a:visited { color: maroon }
+      a:active { color: fuchsia }
+  </style>
   </head>
+
   
-  <img src="/HTML_Images/Piggy_Bank.jpg" alt="Putting Money in Piggy Bank">
 
   <body>
-    <h1>Employee Reimbursements</h1>
-    <style type="text/css">
-        h1 { text-align: center}
-        body { background: grey; color: black}
-        a:link { color: red }
-        a:visited { color: maroon }
-        a:active { color: fuchsia }
-    </style>
-    
-
+    <h1 class = "display-1"><b>Employee Reimbursements</b></h1>
 
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
-  </body>
 
   <div class = "container" id = "fullcontainer">
     <div class = "row">
-        <h3 class = "col-lg-12"> Please Enter Your Username and Password:</h3> 
-        <input class = "col-sm-4 form-control" id= "username" type= "text" placeholder="USERNAME">
-        <input class = "col-sm-4 form-control" id= "password" type= "password" placeholder="PASSWORD">
-        <button id = "loginbtn" class = "btn btn-success">Login</button>     
+      <div class = "col"> <img src="../HTML_Images/Piggy_Bank.jpg"
+        width =300 height =200 alt=" Money Going Into Piggy Bank"></div>
+      <div class ="col-4">
+        <h3 class = "h3"> Please Enter Your Username and Password:</h3> 
+        <input class = "form-control" id= "username" type= "text" placeholder="USERNAME">
+        <input class = "form-control" id= "password" type= "password" placeholder="PASSWORD">
+        <button id = "loginbtn" class = "btn btn-success">Login</button>  
+      </div>
+      <div class = "col"> <img src="../HTML_Images/piggy-bank-money-finance.jpg"
+        width =300 height =200 alt="Gold Piggy Bank"></div>   
     </div>
-    <p id ="login row"></p>
+    <p id ="login_row"></p>
 
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
     <script src = "project1.js">
 
     </script>
+     </body>
 </html>

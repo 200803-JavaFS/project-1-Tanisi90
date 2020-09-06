@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.revature.daos.UserDAO;
 import com.revature.models.LoginDTO;
 import com.revature.services.LoginService;
 
@@ -15,6 +16,7 @@ public class LoginController {
 
 	private static LoginService ls = new LoginService();
 	private static ObjectMapper om = new ObjectMapper();
+	private static UserDAO ud = new UserDAO();
 
 	public void login(HttpServletRequest req, HttpServletResponse res) throws IOException {
 
@@ -38,6 +40,7 @@ public class LoginController {
 				HttpSession ses = req.getSession();
 				ses.setAttribute("user", l);
 				ses.setAttribute("loggedin", true);
+				ses.setAttribute("user_id", ud.getByUsername(l.username).getUsers_id()); // saves my user_id to the session
 				res.setStatus(200);
 				res.getWriter().println("Login Successful");
 			} else {

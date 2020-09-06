@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.revature.controller.LoginController;
 import com.revature.controller.ReimbursementController;
 import com.revature.controller.UserController;
+import com.revature.models.LoginDTO;
 import com.revature.models.User_Roles;
 import com.revature.models.Users;
 import com.revature.services.UserService;
@@ -45,13 +46,14 @@ public class MasterServlet extends HttpServlet {
 			case "Login":
 				lc.login(req, resp);
 				break;
-			case "success": 
+			case "Success": 
+				System.out.println(req.getSession(false).getAttribute("user"));
 					if (req.getSession(false) != null && (boolean) req.getSession().getAttribute("loggedin")) {
-						Users u = (Users) req.getSession().getAttribute("user");
+						LoginDTO lDTO = (LoginDTO) req.getSession().getAttribute("user");
 						
-						System.out.println(" Username: "+  u.getUsername());
+						System.out.println(" Username: "+  lDTO);
 						
-						u = userv.getByUsername(u.getUsername());
+						Users u = userv.getByUsername(lDTO.username);
 						User_Roles ur= u.getUser_role_id();	
 						System.out.println(ur);
 						if(req.getMethod().equals("GET")) {
@@ -59,6 +61,9 @@ public class MasterServlet extends HttpServlet {
 						}
 					}
 					break;
+			case "UserReimbursements":
+				// need to add where gets reimbursements off of id
+				
 			case "Reimbursements":
 				if (req.getMethod().equals("GET")) {
 					if (portions.length == 2) {

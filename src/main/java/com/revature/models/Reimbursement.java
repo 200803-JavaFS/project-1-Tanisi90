@@ -25,13 +25,13 @@ public class Reimbursement implements Serializable{
 	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name = "reimb_id")
+	@Column(name = "reimb_id", nullable = false)
 	private int reimb_id;
 	
-	@Column(name = "reimb_amount")
+	@Column(name = "reimb_amount", nullable = false)
 	private double reimb_amount;
 	
-	@Column(name = "reimb_submitted")
+	@Column(name = "reimb_submitted", nullable = false)
 	@CreationTimestamp
 	private Timestamp reimb_submitted;
 	
@@ -44,7 +44,7 @@ public class Reimbursement implements Serializable{
 	
 	// Foreign Keys
 	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	@JoinColumn(name = "reimb_author")
+	@JoinColumn(name = "reimb_author", nullable = false)
 	private Users reimb_author;
 	
 	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
@@ -52,11 +52,11 @@ public class Reimbursement implements Serializable{
 	private Users reimb_resolver;
 	
 	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	@JoinColumn(name = "reimb_status_id")
+	@JoinColumn(name = "reimb_status_id", nullable = false)
 	private Reimbursement_Status reimb_status_id;
 	
 	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	@JoinColumn(name = "reimb_type_id")
+	@JoinColumn(name = "reimb_type_id", nullable = false)
 	private Reimbursement_Type reimb_type_id;
 	
 	

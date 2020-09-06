@@ -38,9 +38,9 @@ public interface Driver {
 		User_Roles ur = uDAO.getUserRoleID(1);
 		User_Roles ur2 = uDAO.getUserRoleID(2);
 		
-		Users u = new Users("Tanisi", hashattempt, "Brittany", "Epstein", "GodWork@gmail.com");
-		Users u2 = new Users("Je_Jolie", hashattempt1,"Adam", "Cotten", "NoReallyWork@aol.com");
-		Users u3 = new Users("DaughterOfLilith", hashattempt2, "Arlene", "Vanderbelt", "Pleeaaassseee@hotmail.com");
+		Users u = new Users("Tanisi", hashattempt, "Brittany", "Epstein", "GodWork@gmail.com", ur2);
+		Users u2 = new Users("Je_Jolie", hashattempt1,"Adam", "Cotten", "NoReallyWork@aol.com", ur);
+		Users u3 = new Users("DaughterOfLilith", hashattempt2, "Arlene", "Vanderbelt", "Pleeaaassseee@hotmail.com", ur);
 		
 		uDAO.addUser(u);
 		uDAO.addUser(u2);

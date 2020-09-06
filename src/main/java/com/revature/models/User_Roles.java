@@ -17,10 +17,10 @@ public class User_Roles implements Serializable {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name = "user_role_id")
+	@Column(name = "user_role_id", nullable = false)
 	private int user_role_id;
 	
-	@Column(name = "user_role")
+	@Column(name = "user_role", nullable = false)
 	private String user_role;
 	
 	public User_Roles() {
