@@ -123,7 +123,7 @@ async function getByStatusFunc() {
             row.appendChild(sixthcell);
             if (reimbursement.reimb_resolver != null) {
                 let seventhcell = document.createElement("td");
-                seventhcell.innerHTML = reimbursement.reimb_resolver;
+                seventhcell.innerHTML = reimbursement.reimb_resolver.username;
                 row.appendChild(seventhcell);
             } else {
                 let seventhcell = document.createElement("td");
@@ -142,8 +142,8 @@ async function getByStatusFunc() {
 
 async function updateReimbStatusFunc(){
 
-    let reimbId = document.getElementById("reimb_id");
-    let reimbValue = reimbId.value;
+    let reimbId = document.getElementById("reimb_id").value;
+    let reimbValue = reimbId;
 
     const reimbStatusArray = document.querySelectorAll('input[name="status"]');
     let chooseStatus;

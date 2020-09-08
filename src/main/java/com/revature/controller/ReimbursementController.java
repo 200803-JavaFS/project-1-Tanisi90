@@ -219,6 +219,8 @@ public class ReimbursementController {
 //			rstat = new Reimbursement_Status(3, "denied");
 //		}
 //		
+//		rdt.reimb_author = us.findById(r.getReimb_status_id());
+//		
 //		int resolvId = rdt.reimb_author; // need to get this to an int
 //		
 //		r.setReimb_status_id(rstat);
@@ -234,7 +236,7 @@ public class ReimbursementController {
 //		}
 //		
 //	}
-	
+//	
 	
 
 
