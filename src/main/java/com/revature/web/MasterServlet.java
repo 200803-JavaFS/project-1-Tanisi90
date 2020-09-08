@@ -83,7 +83,9 @@ public class MasterServlet extends HttpServlet {
 //				break;
 //			case "UpdateStatus":
 //				reimbc.updateReimbStatus(req, resp);
-//				break;			
+//				break;
+//				
+				
 			case "logout":
 				lc.logout(req, resp);
 				break;

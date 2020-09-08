@@ -170,7 +170,7 @@ async function updateReimbStatusFunc(){
         reimbStatus: chooseStatus
     }
 
-    let resp = await fetch(url + "reimbursements", {
+    let resp = await fetch(url + "Resolved", {
         method: 'POST',
         body: JSON.stringify(reimbStatus),
         credentials: "include"
@@ -185,11 +185,15 @@ async function updateReimbStatusFunc(){
 
 async function logoutFunc(){
 
-    let resp = await fetch(url+"logout", {
+    let resp = await fetch(url + "logout", {
         credentials: "include"
     });
 
     if(resp.status===200) {
         window.location.replace = "project1.html";
     }
+    //  else {
+    //     sessionStorage.clear();
+    //     window.location.replace = "project1.html";
+    // }
 }

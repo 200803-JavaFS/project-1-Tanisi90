@@ -185,8 +185,9 @@ public class ReimbursementController {
 			String json = objm.writeValueAsString(ReimbsByStatus);
 			res.getWriter().println(json);
 		}
-		
 	}
+}
+
 	
 //public void updateReimbStatus (HttpServletRequest req, HttpServletResponse res) throws IOException {
 //		
@@ -219,7 +220,7 @@ public class ReimbursementController {
 //		}
 //		
 //		int resolvId = rdt.reimb_author; // need to get this to an int
-		
+//		
 //		r.setReimb_status_id(rstat);
 //		Users resolv = us.findById(resolvId);
 //		r.setReimb_resolver(resolv);
@@ -231,8 +232,8 @@ public class ReimbursementController {
 //		} else {
 //			res.setStatus(403);
 //		}
-		
-	}
+//		
+//	}
 	
 	
 
