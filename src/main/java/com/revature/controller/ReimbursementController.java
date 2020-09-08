@@ -28,6 +28,7 @@ public class ReimbursementController {
 	private static UserService us = new UserService();
 	private static ReimbursementDAO rd = new ReimbursementDAO();
 	private static UserDAO ud = new UserDAO();
+
 	
 
 	public void getSingleReimbursement(HttpServletResponse resp, int id) throws IOException {
@@ -122,7 +123,7 @@ public class ReimbursementController {
 		re.setReimb_description(reimb.reimb_description);
 		re.setReimb_status_id(rd.getByOneStatus(1));
 		System.out.println(reimb.reimb_type_id);
-		System.out.println("Where am I 1?");
+		//System.out.println("Where am I 1?");
 		
 		int id = 0;
 		if(reimb.reimb_type_id.equals("Travel Exp")) {
@@ -138,7 +139,7 @@ public class ReimbursementController {
 		}else { 			
 			id = 6;
 		}
-		System.out.println("Where am I? 2");
+		//System.out.println("Where am I? 2");
 		HttpSession ses = req.getSession(false);
 		re.setReimb_author(ud.findById((Integer)ses.getAttribute("user_id")));
 
@@ -153,62 +154,90 @@ public class ReimbursementController {
 		}
 	}
 
-	public void ReimbursementsByStatus(HttpServletResponse resp, Reimbursement_Status status) throws IOException {
-		List<Reimbursement> allStats = reimbs.ReimbursementsByStatus(status);
-		resp.getWriter().println(objm.writeValueAsString(allStats));
-		resp.setStatus(200);
-
+//	public void ReimbursementsByStatus(HttpServletResponse resp, Reimbursement_Status status) throws IOException {
+//		List<Reimbursement> allStats = reimbs.ReimbursementsByStatus(status);
+//		resp.getWriter().println(objm.writeValueAsString(allStats));
+//		resp.setStatus(200);
+//
+//	}
+	
+ public void getReimbursementByUser_Id(HttpServletResponse res, int id) throws IOException {
+		
+		List<Reimbursement> allReimbsByAuthor = reimbs.getReimbursementByUser_Id(id);
+		if (allReimbsByAuthor != null && allReimbsByAuthor.isEmpty()) {
+			res.setStatus(204);
+		} else {
+			res.setStatus(200);
+			String json = objm.writeValueAsString(allReimbsByAuthor);
+			res.getWriter().println(json);
+		}	
+	}
+ 
+	public void getAllReimbursementsByStatus (HttpServletResponse res, int id) throws IOException {
+		
+		Reimbursement_Status reimbstat = rd.getByOneStatus(id);
+		List<Reimbursement> ReimbsByStatus = reimbs.ReimbursementsByStatus(reimbstat);
+		
+		if (ReimbsByStatus.isEmpty()) {
+			res.setStatus(204);
+		} else {
+			res.setStatus(200);
+			String json = objm.writeValueAsString(ReimbsByStatus);
+			res.getWriter().println(json);
+		}
+		
+	}
+	
+//public void updateReimbStatus (HttpServletRequest req, HttpServletResponse res) throws IOException {
+//		
+//		BufferedReader reader = req.getReader();
+//		
+//		StringBuilder sb = new StringBuilder();
+//		
+//		String line = reader.readLine();
+//		
+//		while(line != null) {
+//			sb.append(line);
+//			line = reader.readLine();
+//		}
+//		
+//		String body = new String(sb);
+//		
+//		ReimbursementDTO rdt = objm.readValue(body, ReimbursementDTO.class);
+//		
+//		int id = rdt.reimb_id;
+//		
+//		Reimbursement r = reimbs.getReimbursementByUser_Id(u);
+//		
+//		String status = rdt.reimb_status_id;
+//		
+//		Reimbursement_Status rstat = null;
+//		if (status.equals("approved")) {
+//			rstat = new Reimbursement_Status(2, "approved");
+//		} else if (status.equals("denied")) {
+//			rstat = new Reimbursement_Status(3, "denied");
+//		}
+//		
+//		int resolvId = rdt.reimb_author; // need to get this to an int
+		
+//		r.setReimb_status_id(rstat);
+//		Users resolv = us.findById(resolvId);
+//		r.setReimb_resolver(resolv);
+//		r.setReimb_resolved(new Timestamp(System.currentTimeMillis()));
+//		
+//		if (reimbs.updateReimbursementTicket(r)) {
+//			res.setStatus(202);
+//			res.getWriter().println("Reimbursement Updated");
+//		} else {
+//			res.setStatus(403);
+//		}
+		
 	}
 	
 	
 
-//	public void updateReimbursementTicket(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-//		BufferedReader reader = req.getReader();
-//
-//		StringBuilder s = new StringBuilder();
-//
-//		String line = reader.readLine();
-//
-//		Users u = (Users) req.getSession().getAttribute("user");
-//		while (line != null) {
-//			s.append(line);
-//			line = reader.readLine();
-//		}
-//		try {
-//		switch (portions[0]) {
-//		case "approve": 
-//			reimbs.updateReimbursementTicket(rt)(u.getUsers_id(), Integer.parseInt(s.toString()));
-//		resp.getWriter().print("You've been approved!");
-//		resp.setStatus(201);
-//		case "denied":
-//			Users user = (Users) req.getSession().getAttribute("user");
-//			while (line != null) {
-//				s.append(line);
-//				line = reader.readLine();
-//			}
-//		}
-//	
-//	}
 
-//	public void updateReimbursementStatus(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-//		BufferedReader reader = req.getReader();
-//		StringBuilder s = new StringBuilder();
-//		String line = reader.readLine();
-//		while (line != null) {
-//			s.append(line);
-//			line = reader.readLine();
-//		}
-//
-//		String body = new String(s);
-//
-//		Reimbursement_Status rs = objm.readValue(body, Reimbursement_Status.class);
-//
-//		if (reimbs.updateReimbursementStatus(rs)) {
-//			resp.setStatus(202);
-//			resp.getWriter().println("Reimbursement Status Updated");
-//		} else {
-//			resp.setStatus(304);
-//		}
-//	}
+	
+	
 
-}
+

@@ -43,19 +43,19 @@ public class Reimbursement implements Serializable{
 	private String reimb_description;
 	
 	// Foreign Keys
-	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	@JoinColumn(name = "reimb_author", nullable = false)
 	private Users reimb_author;
 	
-	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	@JoinColumn(name = "reimb_resolver")
 	private Users reimb_resolver;
 	
-	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	@JoinColumn(name = "reimb_status_id", nullable = false)
 	private Reimbursement_Status reimb_status_id;
 	
-	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	@JoinColumn(name = "reimb_type_id", nullable = false)
 	private Reimbursement_Type reimb_type_id;
 	

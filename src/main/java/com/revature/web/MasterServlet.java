@@ -73,7 +73,17 @@ public class MasterServlet extends HttpServlet {
 					reimbc.addReimbursementTicket(req, resp);
 				}
 				break;
-			
+			case "StatusReimbursement":
+				int id = Integer.parseInt(portions[1]);
+				reimbc.getAllReimbursementsByStatus(resp, id);
+				break;
+//			case "AuthorReimbursement":
+//				int id2 = Integer.parseInt(portions[1]);
+//				reimbc.getReimbursementByUser_Id(resp, id2 );
+//				break;
+//			case "UpdateStatus":
+//				reimbc.updateReimbStatus(req, resp);
+//				break;			
 			case "logout":
 				lc.logout(req, resp);
 				break;

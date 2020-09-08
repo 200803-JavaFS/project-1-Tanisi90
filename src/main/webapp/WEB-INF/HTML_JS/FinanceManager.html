@@ -6,12 +6,13 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <title>Finance Manager Portal</title>
     <style type="text/css">
-        h1, h2 { text-align: center}
+        h1, h2, h3 { text-align: center}
         body { background: lightslategray; color: black}
     </style>
 
 </head>
-<body>
+
+<body onload="getUserReimbursement()">
    <h1 class = "display-1" style = "color: lawngreen"><b> Finance Manager Portal</b></h1>
    <br>
    <br>
@@ -28,10 +29,10 @@
                    <th id="reimb_id"> Reimbursement_ID </th>
                    <th id="reimb_amount">Reimbursement Reimbursement_Amount </th>
                    <th id="reimb_submitted">Reimbursement Ticket_Submitted </th>
-                   <!-- <th id="reimb_resolved">Reimbursement Ticket_Resolved </th> -->
+                   <th id="reimb_resolved">Reimbursement Ticket_Resolved </th>
                    <th id="reimb_description">Reimbursement Description</th>
                    <th id="reimb_author">Reimbursement Author_ID </th>
-                   <!-- <th id="reimb_resolver">Reimbursement Resolver_ID</th> -->
+                   <th id="reimb_resolver">Reimbursement Resolver_ID</th>
                    <th id="reimb_status_id">Reimbursement Status_ID </th>
                    <th id="reimb_type_id">Reimbursement Type_ID </th>
                </tr>
@@ -41,7 +42,60 @@
        </table>
        <br>
        <br>
+       <div class = "row" id = "status table-row">
+           <div class ="col">
+               <p><b> Below are tasks that you can complete! </b></p>
+               <label for = "statusId"> Reimbursement by Status</label>
+               <input type = "text" id="status"/>
+               <button id="updateStatusBtn" class="btn btn-success mb-5" style = "display:block" onclick = "getByStatusFunc()">Submit</button>
+            
+            </div>
+
+       </div>
+       <table class="table-hover table-bordered" id="reimbursement_table">
+        <thead>
+            <tr>
+                <th id="reimb_id"> Reimbursement_ID </th>
+                <th id="reimb_amount">Reimbursement Reimbursement_Amount </th>
+                <th id="reimb_submitted">Reimbursement Ticket_Submitted </th>
+                <th id="reimb_resolved">Reimbursement Ticket_Resolved </th>
+                <th id="reimb_description">Reimbursement Description</th>
+                <th id="reimb_author">Reimbursement Author_ID </th>
+                <th id="reimb_resolver">Reimbursement Resolver_ID</th>
+                <th id="reimb_status_id">Reimbursement Status_ID </th>
+                <th id="reimb_type_id">Reimbursement Type_ID </th>
+            </tr>
+        </thead>
+        <tbody id="reimbursementb3">
+        </tbody>
+        </table>
        <br>
-<script src = "FinanceManager.html"></script>
+       <br>
+       <br>
+       <div class = "row" id= "updateStatus">
+           <div class = "col">
+               <h3 style="color: rgb(228, 225, 48)">Approve/Deny Reimbursement</h3>
+               <div class = "form-group">
+                   <label for = "reimb_id">Please enter Reimbursement Number for Ticket to A/D</label>
+                   <input type = "number" id = "reimb_id"/>
+                </div>
+                <div class = "form-group">
+                    <input type="radio" id= "approved" name= "status" value= "approved">
+                    <label for="approved">Approved</label><br>
+                    <input type="radio" id="denied" name="status" value="denied">
+                    <label for="denied">Denied</label>
+                </div>
+                <button id="updateStatusBtn" class="btn btn-success">Submit</button>
+                <h6 id="Success"></h6>
+            </div>
+        </div>
+        <br>
+        <br>
+        <br>
+        <br>
+
+    <button id="logoutBtn" class="btn btn-primary" onclick = "logout()">Logout</button>
+    </div>
+<script src = "FinanceManager.js"></script>
 </body>
 </html>

@@ -19,7 +19,7 @@ async function loginFunc(){
 
     if(resp.status === 200){
         document.getElementById("login_row").innerText = "YOU HAVE LOGGED IN!";
-        console.log(resp);
+        //console.log(resp);
         let uidresp = await resp.json();
         sessionStorage.setItem("user_id", uidresp);
         RolePages();

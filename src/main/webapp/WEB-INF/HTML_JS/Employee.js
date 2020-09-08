@@ -16,7 +16,7 @@ async function getUserReimbursement() {
         console.log(resp);
         let rdata = await resp.json();
         for (let reimbursement of rdata) {
-            console.log(reimbursement);
+            //console.log(reimbursement);
 
             let row = document.createElement("tr");
             let firstcell = document.createElement("td");
