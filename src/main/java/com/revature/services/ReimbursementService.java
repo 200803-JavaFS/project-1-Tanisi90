@@ -46,6 +46,10 @@ public class ReimbursementService {
 		return rDAO.ReimbursementsByStatus(status);
 	}
 	
+	public List <Reimbursement> getReimbursementByUser_Id(int u){
+		log.info("Get Reimbursement By ID");
+		return rDAO.getReimbursementByUser_Id(u);	
+	}
 //	public Reimbursement_Status updateReimbursementStatus(Reimbursement_Status status) {
 //		log.info("Updating A Reimbursement Status");
 //		return rDAO.updateReimbursementStatus(status);

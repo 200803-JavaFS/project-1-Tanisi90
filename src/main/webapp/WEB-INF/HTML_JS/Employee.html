@@ -1,45 +1,135 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <style type="text/css">
-        h1, h2 { text-align: center}
-        body { background: lightslategray; color: black}
+        h1,
+        h2 {
+            text-align: center
+        }
+
+        body {
+            background: lightslategray;
+            color: black
+        }
     </style>
 
 </head>
-<body onload="getUserReimbursement()">
-   <h1 class = "display-1" style = "color: lawngreen "><b> Employee Portal</b></h1>
-<br>
-<br>
-<h2 style = "color: black"> Tickets!</h2>
-<div class="container" id="fullcontainer">
-    <div class="text-center"></div>
-    <div class="row" id="table-row">      
-  </div>
-  <table class="table-hover table-bordered" id="reimbursement_table">
-    <thead> 
-        <tr>
-            <th>Reimbursement Employee_ID </th>
-            <th>Reimbursement Reimbrusement_Amount </th>
-            <th>Reimbursement Ticket_Submitted </th>
-            <th>Reimbursement Ticket_Resolved </th>
-            <th>Reimbursement Description</th>
-            <th>Reimbursement Author_ID </th>
-            <th>Reimbursement Resolver_ID</th>
-            <th>Reimbursement Status_ID </th>
-            <th>Reimbursement Type_ID </th>
-        </tr>
-    </thead>
-    <tbody id="reimbursementb">
-    </tbody>
-</table>
-</div>
-<br>
-<br>
-<script src = "Employee.js"></script>
 
-</body>
+<body onload="getUserReimbursement()">
+    <!--loads table for logged in employee-->
+
+    <body onload="addReimbFunction()">
+        <h1 class="display-1" style="color: lawngreen "><b> Employee Portal</b></h1>
+        <br>
+        <br>
+        <h2 style="color: rgb(228, 225, 48)"> Tickets!</h2>
+        <br>
+        <br>
+        <div class="container" id="fullcontainer">
+            <div class="text-center"></div>
+            <div class="row" id="table-row">
+            </div>
+            <table class="table-hover table-bordered" id="reimbursement_table">
+                <thead>
+                    <tr>
+                        <th id="reimb_id"> Reimbursement_ID </th>
+                        <th id="reimb_amount">Reimbursement Reimbursement_Amount </th>
+                        <th id="reimb_submitted">Reimbursement Ticket_Submitted </th>
+                        <th id="reimb_resolved">Reimbursement Ticket_Resolved </th>
+                        <th id="reimb_description">Reimbursement Description</th>
+                        <th id="reimb_author">Reimbursement Author_ID </th>
+                        <th id="reimb_resolver">Reimbursement Resolver_ID</th>
+                        <th id="reimb_status_id">Reimbursement Status_ID </th>
+                        <th id="reimb_type_id">Reimbursement Type_ID </th>
+                    </tr>
+                </thead>
+                <tbody id="reimbursementb">
+                </tbody>
+            </table>
+            <br>
+            <br>
+            <br>
+            <h2 style="color: rgb(228, 225, 48)"> Add Reimbursement!</h2>
+            <br>
+            <br>
+                <div class="form-group row">
+                    <label for="Reimbursement_Amount" class="col-sm-2 col-form-label"><b>
+                            Reimbursement_Amount:</b></label>
+                    <div class="col-sm-10">
+                        <input type="number" class="form-control" id="Reimbursement_Amount"
+                            placeholder="PLEASE ENTER $ AMOUNT">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="Reimbursement Description" class="col-sm-2 col-form-label"><b> Reimbursement
+                            Description:</b></label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="Reimbursement Description"
+                            placeholder="DESCRIPTION HERE!">
+                    </div>
+                </div>
+                <fieldset class="form-group">
+                    <div class="row">
+                        <legend class="col-form-label col-sm-2 pt-0"><b> Types:</b></legend>
+                        <div class="col-sm-10">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1"
+                                    value="Travel Exp" checked>
+                                <label class="form-check-label" for="gridRadios1">
+                                    Travel Exp
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2"
+                                    value="Dining">
+                                <label class="form-check-label" for="gridRadios2">
+                                    Dining
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios3"
+                                    value="Lodging">
+                                <label class="form-check-label" for="gridRadios3">
+                                    Lodging
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios4"
+                                    value="Internet">
+                                <label class="form-check-label" for="gridRadios4">
+                                    Internet
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios5"
+                                    value="Certs">
+                                <label class="form-check-label" for="gridRadios5">
+                                    Certs
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios6"
+                                    value="Other">
+                                <label class="form-check-label" for="gridRadios6">
+                                    Other
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary" onclick= "addReimbFunction()">Confirm</button>
+                    <div id = "grabbing" ></div>
+        </div>
+        </div>
+        </div>
+        <br>
+        <br>
+        <script src="Employee.js"></script>
+
+    </body>
+
 </html>

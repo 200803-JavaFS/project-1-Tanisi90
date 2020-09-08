@@ -6,14 +6,42 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <title>Finance Manager Portal</title>
     <style type="text/css">
-        h1 { text-align: center}
+        h1, h2 { text-align: center}
         body { background: lightslategray; color: black}
     </style>
 
 </head>
 <body>
    <h1 class = "display-1" style = "color: lawngreen"><b> Finance Manager Portal</b></h1>
-   
-
+   <br>
+   <br>
+   <h2 style="color: rgb(228, 225, 48)"> Tickets!</h2>
+   <br>
+   <br>
+   <div class="container" id="fullcontainer">
+       <div class="text-center"></div>
+       <div class="row" id="table-row">
+       </div>
+       <table class="table-hover table-bordered" id="reimbursement_table">
+           <thead>
+               <tr>
+                   <th id="reimb_id"> Reimbursement_ID </th>
+                   <th id="reimb_amount">Reimbursement Reimbursement_Amount </th>
+                   <th id="reimb_submitted">Reimbursement Ticket_Submitted </th>
+                   <!-- <th id="reimb_resolved">Reimbursement Ticket_Resolved </th> -->
+                   <th id="reimb_description">Reimbursement Description</th>
+                   <th id="reimb_author">Reimbursement Author_ID </th>
+                   <!-- <th id="reimb_resolver">Reimbursement Resolver_ID</th> -->
+                   <th id="reimb_status_id">Reimbursement Status_ID </th>
+                   <th id="reimb_type_id">Reimbursement Type_ID </th>
+               </tr>
+           </thead>
+           <tbody id="reimbursementb2">
+           </tbody>
+       </table>
+       <br>
+       <br>
+       <br>
+<script src = "FinanceManager.html"></script>
 </body>
 </html>

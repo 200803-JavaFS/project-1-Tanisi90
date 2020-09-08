@@ -20,6 +20,8 @@ async function loginFunc(){
     if(resp.status === 200){
         document.getElementById("login_row").innerText = "YOU HAVE LOGGED IN!";
         console.log(resp);
+        let uidresp = await resp.json();
+        sessionStorage.setItem("user_id", uidresp);
         RolePages();
     }else {
         document.getElementById("login_row").innerText = "Your Username or Password is incorrect!";
@@ -37,7 +39,7 @@ async function loginFunc(){
             let rdata = await resp.json();
             console.log(rdata);
             let UserId = rdata;
-            sessionStorage.setItem("UserId", UserId);
+            sessionStorage.setItem("user_role_id", UserId);
 
             if (UserId == 1) {
                 window.location.replace("Employee.html"); 

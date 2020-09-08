@@ -54,16 +54,13 @@ public class MasterServlet extends HttpServlet {
 						System.out.println(" Username: "+  lDTO);
 						
 						Users u = userv.getByUsername(lDTO.username);
-						User_Roles ur= u.getUser_role_id();	
+						User_Roles ur = u.getUser_role_id();	
 						System.out.println(ur);
 						if(req.getMethod().equals("GET")) {
 							userc.setUser_Role(req, resp, u);
 						}
 					}
 					break;
-			case "UserReimbursements":
-				// need to add where gets reimbursements off of id
-				
 			case "Reimbursements":
 				if (req.getMethod().equals("GET")) {
 					if (portions.length == 2) {
@@ -76,7 +73,7 @@ public class MasterServlet extends HttpServlet {
 					reimbc.addReimbursementTicket(req, resp);
 				}
 				break;
-	
+			
 			case "logout":
 				lc.logout(req, resp);
 				break;
@@ -88,6 +85,18 @@ public class MasterServlet extends HttpServlet {
 		}
 		
 	}
+	
+//	private void updateReimbursement(String[] portions, HttpServletRequest req, HttpServletResponse resp)
+//			throws IOException {
+//		switch (portions[2]) {
+//		case "approve":
+//			reimbc.updateReimbursementTicket(req, resp);
+//			break;
+//		case "denied":
+//			reimbc.updateReimbursementTicket(req, resp);
+//			break;
+//		}
+//	}
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

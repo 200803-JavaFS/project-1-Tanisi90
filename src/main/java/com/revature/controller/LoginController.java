@@ -42,7 +42,7 @@ public class LoginController {
 				ses.setAttribute("loggedin", true);
 				ses.setAttribute("user_id", ud.getByUsername(l.username).getUsers_id()); // saves my user_id to the session
 				res.setStatus(200);
-				res.getWriter().println("Login Successful");
+				res.getWriter().println(ses.getAttribute("user_id"));
 			} else {
 				HttpSession ses = req.getSession(false);
 				if (ses != null) {
